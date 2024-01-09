@@ -7,34 +7,28 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
-    public static Properties properties;
-    static {
-        String path = "configuration.properties";
-        try {
+
+        public static Properties properties;
+        static {
+            String path = "configuration.properties";
+            try {
                 FileInputStream fileInputStream = new FileInputStream(path);
                 properties = new Properties();
                 properties.load(fileInputStream);
                 fileInputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-    }
-
     public static String getProperty(String key){
-//        String browserTypeRemoteValue = System.getProperty("browserType");
-//
-//        if (browserTypeRemoteValue == null || browserTypeRemoteValue.isEmpty()) {
-//            properties.getProperty(key);
-//        }
-//        else {
-//            properties.getProperty(browserTypeRemoteValue);
-//            }
 
-        return properties.getProperty(key);
+            return properties.getProperty(key);
+        }
+
 
     }
 
-}
+

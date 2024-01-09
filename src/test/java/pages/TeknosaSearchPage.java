@@ -11,6 +11,7 @@ import utilities.Driver;
 import java.util.regex.Pattern;
 
 import static utilities.Driver.driver;
+import static utilities.Driver.getDriver;
 
 public class TeknosaSearchPage {
 
@@ -18,6 +19,8 @@ public class TeknosaSearchPage {
 
 
     public final By bestSellers = By.xpath("//label[@for=\"bestSellerPoint-desc\"]");
+
+    public final By subCategory = By.xpath("//div[@class=\"input checkbox\"]/input[@id=\"category0\"]");
 
     public final By firstProduct = By.xpath("(//div[@id=\"product-item\"])[1]");
 
@@ -47,14 +50,8 @@ public class TeknosaSearchPage {
 
 
 
-
-
-
-
     public void clickSubCategory() throws InterruptedException {
-        WebElement subCategory = driver.findElement(By.xpath("//div[@class=\"input checkbox\"]/input[@id=\"category0\"]"));
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("arguments[0].click();", subCategory);
+        Action.checkBoxClick(subCategory);
         Thread.sleep(1000);
     }
 
@@ -79,7 +76,7 @@ public class TeknosaSearchPage {
     }
 
     public void backToPreviousPage() {
-        driver.navigate().back();
+        getDriver().navigate().back();
     }
 
     public void clickLastProduct() throws InterruptedException {

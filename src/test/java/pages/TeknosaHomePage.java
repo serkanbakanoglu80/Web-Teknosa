@@ -1,13 +1,12 @@
 package pages;
 
-import io.cucumber.java.en_old.Ac;
 import io.github.sukgu.Shadow;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Action;
 import utilities.Driver;
 
-import static utilities.Driver.driver;
+import static utilities.Driver.getDriver;
 
 public class TeknosaHomePage {
 
@@ -27,7 +26,7 @@ public class TeknosaHomePage {
     }
 
     public void clickCookieAccept() {
-        Shadow shadow = new Shadow(driver);
+        Shadow shadow = new Shadow(getDriver());
         shadow.findElementByXPath(("//*[.='Kabul Et']")).click();
     }
 

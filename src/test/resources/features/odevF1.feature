@@ -1,4 +1,4 @@
-@searchstore @all
+@findstore @all
 Feature: Magazaların yazdırılması
 
   Scenario: Magazalarin dosyaya yazdirilmasi

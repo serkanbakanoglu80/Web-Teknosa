@@ -10,8 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertTrue;
 import static org.openqa.selenium.Keys.END;
 import static utilities.Driver.driver;
+import static utilities.Driver.getDriver;
 
 public class Action {
 
@@ -65,26 +67,38 @@ public class Action {
 
     public static void scrollIntoView(By xpath) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
         WebElement element=Driver.getDriver().findElement(xpath);
-        JavascriptExecutor je = (JavascriptExecutor) driver;
+        JavascriptExecutor je = (JavascriptExecutor) getDriver();
         je.executeScript("arguments[0].scrollIntoView(false);", element);
+    }
+
+    public static void scrollIntoViewCenter(By xpath) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        WebElement element=Driver.getDriver().findElement(xpath);
+        JavascriptExecutor je = (JavascriptExecutor) getDriver();
+        je.executeScript("arguments[0].scrollIntoView({behavior: ‘smooth’, block: ‘nearest’, inline: ‘nearest’})", element);
     }
 
     public static void focusElement(By xpath) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
         WebElement element=Driver.getDriver().findElement(xpath);
-        JavascriptExecutor je = (JavascriptExecutor) driver;
+        JavascriptExecutor je = (JavascriptExecutor) getDriver();
         je.executeScript("arguments[0].focus();", element);
     }
 
+    public static void checkBoxClick(By xpath) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        WebElement element=Driver.getDriver().findElement(xpath);
+        JavascriptExecutor je = (JavascriptExecutor) getDriver();
+        je.executeScript("arguments[0].click();", element);
+    }
 
-    public static void  checkElementValue(By xpath, String text){
+    public static void  checkElementValueContaining(By xpath, String text){
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
         WebElement element=Driver.getDriver().findElement(xpath);
-        Assert.assertEquals(element.getAttribute("value"),text);
+        Assert.assertTrue(element.getText().contains(text));
     }
 
     public static void clearText(By xpath){

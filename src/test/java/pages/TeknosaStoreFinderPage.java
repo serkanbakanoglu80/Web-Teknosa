@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -19,15 +20,17 @@ public class TeknosaStoreFinderPage {
 
 
     public final By teknosaCity = By.xpath("//select[@title='cities']");
-
     public final By ankara = By.xpath("//*[@id=\"cities1\"]/option[6]");
     public final By teknosaTown = By.xpath("//select[@title='towns']");
     public final By cankaya = By.xpath("//*[@id=\"towns\"]/option[7]");
+
+    public final By result = By.xpath("//span[@id=\"js-list-city-name\"]");
+
     public final By storeone = By.xpath("(//div[@class='str-title'])[1]");
     public final By storetwo = By.xpath("(//div[@class='str-title'])[2]");
     public final By storethree = By.xpath("(//div[@class='str-title'])[3]");
     public final By storefour = By.xpath("(//div[@class='str-title'])[4]");
-
+    public final By searchresultother = By.xpath("//div[@class=\"stp-list-info info-blue\"]");
     public final By searchresult = By.xpath("//div[@class=\"stp-list-items\"]//div[@class=\"str\"][4]/div[@class=\"str-header\"]");
 
 
@@ -37,6 +40,8 @@ public class TeknosaStoreFinderPage {
         Thread.sleep(1000);
         Action.clickElement(ankara);
         Thread.sleep(1000);
+        Action.checkElementValueContaining(teknosaCity, "Ankara");
+
     }
 
     public void selectTown() throws InterruptedException {
@@ -45,7 +50,8 @@ public class TeknosaStoreFinderPage {
         Action.clickElement(cankaya);
         Thread.sleep(1000);
         Action.scrollIntoView(searchresult);
-        Thread.sleep(5000);
+        Thread.sleep(1000);
+        Action.checkElementValueContaining(result, "ANKARA");
     }
 
     public void writestoreTxt() throws InterruptedException, IOException {
