@@ -1,29 +1,15 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import pages.TeknosaHomePage;
-import pages.TeknosaSearchPage;
+import pages.TeknosaProductPage;
 
 public class TeknosaSearchSteps {
 
-    TeknosaSearchPage teknosasearchPage = new TeknosaSearchPage();
-
-    @And("Alt Kategorilerden “Bluetooth Kulaklık” seçilir")
-    public void altKategorilerdenBluetoothKulaklıkSeçilir() throws InterruptedException {
-        teknosasearchPage.clickSubCategory();
-    }
+    TeknosaProductPage teknosasearchPage = new TeknosaProductPage();
 
 
-    @And("En Çok Satanlar filtresi tıklanır")
-    public void enÇokSatanlarFiltresiTıklanır() throws InterruptedException {
-        teknosasearchPage.clickBestSellers();
-    }
 
-    @And("Ilk sayfadaki birinci ürün tıklanır")
-    public void ılkSayfadakiBirinciÜrünTıklanır() {
-        teknosasearchPage.clickFirstProduct();
-    }
+
 
     @And("Sepete Ekle tıklanır")
     public void sepeteEkleTıklanır() throws InterruptedException {
@@ -42,10 +28,7 @@ public class TeknosaSearchSteps {
     }
 
 
-    @And("Ilk sayfadaki sonuncu ürün tıklanır")
-    public void ılkSayfadakiSonuncuÜrünTıklanır() throws InterruptedException {
-        teknosasearchPage.clickLastProduct();
-    }
+
 
     @And("Sepetime Git e tıklanır")
     public void sepetimeGitETıklanır() {

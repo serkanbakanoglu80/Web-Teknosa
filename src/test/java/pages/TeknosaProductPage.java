@@ -18,19 +18,14 @@ public class TeknosaSearchPage {
     public TeknosaSearchPage() { PageFactory.initElements(Driver.getDriver() , this);}
 
 
-    public final By bestSellers = By.xpath("//label[@for=\"bestSellerPoint-desc\"]");
 
-    public final By subCategory = By.xpath("//div[@class=\"input checkbox\"]/input[@id=\"category0\"]");
 
-    public final By firstProduct = By.xpath("(//div[@id=\"product-item\"])[1]");
 
     public final By pdpAddtoCart = By.xpath("//button[@id=\"addToCartButton\"]");
     public final By pdpAfterAddtoCart = By.xpath("//button[@class=\"btn-compare\"]");
 
     public final By goOnShopping = By.xpath("//div[@class=\"pac-buttons\"]/a[contains(.,'Alışverişe Devam Et')]");
 
-    public final By lastProduct = By.xpath("(//div[@id=\"product-item\"])[20]");
-    public final By afterLastProduct = By.xpath("//button[@class=\"btn btn-extra plp-paging-load-more\"]");
 
     public final By goToCart = By.xpath("//a[@href=\"/sepet\"]/span");
 
@@ -50,20 +45,6 @@ public class TeknosaSearchPage {
 
 
 
-    public void clickSubCategory() throws InterruptedException {
-        Action.checkBoxClick(subCategory);
-        Thread.sleep(1000);
-    }
-
-    public void clickBestSellers() throws InterruptedException {
-        Action.clickElement(bestSellers);
-        Thread.sleep(1000);
-        }
-
-    public void clickFirstProduct() {
-        Action.clickElement(firstProduct);
-    }
-
     public void clickAddToCart() throws InterruptedException {
         Action.scrollIntoView(pdpAddtoCart);
         Thread.sleep(500);
@@ -79,12 +60,7 @@ public class TeknosaSearchPage {
         getDriver().navigate().back();
     }
 
-    public void clickLastProduct() throws InterruptedException {
-        Action.scrollIntoView(lastProduct);
-        Thread.sleep(500);
-        Action.scrollIntoView(afterLastProduct);
-        Action.clickElement(lastProduct);
-    }
+
 
     public void clickGoToCart() {
         Action.clickElement(goToCart);
