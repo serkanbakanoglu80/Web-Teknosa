@@ -3,7 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import pages.TeknosaProductPage;
 
-public class TeknosaSearchSteps {
+public class TeknosaProductSteps {
 
     TeknosaProductPage teknosasearchPage = new TeknosaProductPage();
 
@@ -35,24 +35,7 @@ public class TeknosaSearchSteps {
         teknosasearchPage.clickGoToCart();
     }
 
-    @And("En ucuzunun adedi artırılır")
-    public void enUcuzununAdediArtirilir() throws InterruptedException {
-        teknosasearchPage.incCheapest();
-    }
 
-    @And("Alışverişi Tamamla tıklanır")
-    public void alışverişiTamamlaTıklanır() {
-        teknosasearchPage.clickCartSum();
 
-    }
 
-    @And("Üye Olmadan Devam Et butonuna tıklanarak")
-    public void üyeOlmadanDevamEtButonunaTıklanarak() {
-        teknosasearchPage.clickGuestButton();
-    }
-
-    @And("e-posta adresi girilir")
-    public void ePostaAdresiGirilir() throws InterruptedException {
-        teknosasearchPage.enterEmail();
-    }
 }

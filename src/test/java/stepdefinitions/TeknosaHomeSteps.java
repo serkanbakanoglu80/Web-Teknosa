@@ -25,4 +25,24 @@ public class TeknosaHomeSteps {
         teknosahomePage.sendKeysToSearchArea();
      }
 
+    @And("Alt Kategorilerden “Bluetooth Kulaklık” seçilir")
+    public void altKategorilerdenBluetoothKulaklıkSeçilir() throws InterruptedException {
+        teknosahomePage.clickSubCategory();
+    }
+
+    @And("En Çok Satanlar filtresi tıklanır")
+    public void enÇokSatanlarFiltresiTıklanır() throws InterruptedException {
+        teknosahomePage.clickBestSellers();
+    }
+
+    @And("Ilk sayfadaki birinci ürün tıklanır")
+    public void ılkSayfadakiBirinciÜrünTıklanır() {
+        teknosahomePage.clickFirstProduct();
+    }
+
+    @And("Ilk sayfadaki sonuncu ürün tıklanır")
+    public void ılkSayfadakiSonuncuÜrünTıklanır() throws InterruptedException {
+        teknosahomePage.clickLastProduct();
+    }
+
 }

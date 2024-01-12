@@ -14,12 +14,15 @@ public class TeknosaHomePage {
 
 
     public final By teknosaNotifAccept = By.xpath("//div[@id='button-1580496494']");
-
     public final By teknosaStores = By.xpath("//div[@class='fmi-menu']//a[@title=\"Mağazalarımız\"]");
-
-    public final By underteknosaStores = By.xpath("//div[@class='fmi-menu']//a[@title=\"Pazaryeri Satıcısı Olun\"]");
-
+    public final By underTeknosaStores = By.xpath("//div[@class='fmi-menu']//a[@title=\"Pazaryeri Satıcısı Olun\"]");
     public final By searchField = By.xpath("//div[@class=\"sbx-input\"]/input[@id=\"search-input\"]");
+    public final By bestSellers = By.xpath("//label[@for=\"bestSellerPoint-desc\"]");
+    public final By subCategory = By.xpath("//div[@class=\"input checkbox\"]/input[@id=\"category0\"]");
+    public final By firstProduct = By.xpath("(//div[@id=\"product-item\"])[1]");
+    public final By lastProduct = By.xpath("(//div[@id=\"product-item\"])[20]");
+    public final By afterLastProduct = By.xpath("//button[@class=\"btn btn-extra plp-paging-load-more\"]");
+
 
     public void clickNotifAccept() {
         Action.clickElement(teknosaNotifAccept);
@@ -33,7 +36,7 @@ public class TeknosaHomePage {
     public void clickStores() throws Exception {
         Action.focusElement(teknosaStores);
         Thread.sleep(400);
-        Action.scrollIntoView(underteknosaStores);
+        Action.scrollIntoView(underTeknosaStores);
         Thread.sleep(400);
         Action.clickElement(teknosaStores);
     }
@@ -44,5 +47,26 @@ public class TeknosaHomePage {
             Action.pressEnter(searchField);
     }
 
+    public void clickSubCategory() throws InterruptedException {
+        Action.checkBoxClick(subCategory);
+        Thread.sleep(1000);
+    }
+
+    public void clickBestSellers() throws InterruptedException {
+        Action.clickElement(bestSellers);
+        Thread.sleep(1000);
+    }
+
+
+    public void clickFirstProduct() {
+        Action.clickElement(firstProduct);
+    }
+
+    public void clickLastProduct() throws InterruptedException {
+        Action.scrollIntoView(lastProduct);
+        Thread.sleep(500);
+        Action.scrollIntoView(afterLastProduct);
+        Action.clickElement(lastProduct);
+    }
 
 }

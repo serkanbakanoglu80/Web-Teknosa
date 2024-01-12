@@ -23,14 +23,11 @@ public class TeknosaStoreFinderPage {
     public final By ankara = By.xpath("//*[@id=\"cities1\"]/option[6]");
     public final By teknosaTown = By.xpath("//select[@title='towns']");
     public final By cankaya = By.xpath("//*[@id=\"towns\"]/option[7]");
-
     public final By result = By.xpath("//span[@id=\"js-list-city-name\"]");
-
     public final By storeone = By.xpath("(//div[@class='str-title'])[1]");
     public final By storetwo = By.xpath("(//div[@class='str-title'])[2]");
     public final By storethree = By.xpath("(//div[@class='str-title'])[3]");
     public final By storefour = By.xpath("(//div[@class='str-title'])[4]");
-    public final By searchresultother = By.xpath("//div[@class=\"stp-list-info info-blue\"]");
     public final By searchresult = By.xpath("//div[@class=\"stp-list-items\"]//div[@class=\"str\"][4]/div[@class=\"str-header\"]");
 
 
@@ -41,7 +38,6 @@ public class TeknosaStoreFinderPage {
         Action.clickElement(ankara);
         Thread.sleep(1000);
         Action.checkElementValueContaining(teknosaCity, "Ankara");
-
     }
 
     public void selectTown() throws InterruptedException {
